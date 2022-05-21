@@ -89,26 +89,28 @@ router.post("/products/new", async (req, res) => {
     if (code !== process.env.SECRET_CODE) {
       return res.status(500).json({ message: "Wrong Code" });
     }
-    const link = twitterLink.split("/");
     // process link
     // const image= await axios.post('')
-    console.log(`${link[5]}`);
     const uid = uuid();
     const url = `http://billam.netlify.app/pay/${uid}`;
     const user = await User.findOne({ username });
     if (!user) {
-      const newUser = await User.create({ username });
-      const newRequest = new Request({
-        username,
-        image: twitterLink,
-        totalAmount,
-        uid,
-        title,
-        userId: newUser._id,
-      });
-      await newRequest.save();
-      newUser.requests.push(newRequest._id);
-      await newUser.save();
+      // const newUser = await User.create({
+      //   username,
+      //   email: "test@test.com",
+      //   password: "0000",
+      // });
+      // const newRequest = new Request({
+      //   username,
+      //   image: twitterLink,
+      //   totalAmount,
+      //   uid,
+      //   title,
+      //   userId: newUser._id,
+      // });
+      // await newRequest.save();
+      // newUser.requests.push(newRequest._id);
+      // await newUser.save();
     }
 
     const newRequest = new Request({
