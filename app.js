@@ -33,8 +33,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/v1", routes);
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
-app.listen(process.env.PORT || PORT, () =>
-  console.log(`Server up on port ${PORT}`)
-);
+app.listen(PORT, () => console.log(`Server up on port ${PORT}`));
