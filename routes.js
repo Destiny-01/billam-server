@@ -94,7 +94,7 @@ router.post("/products/new", async (req, res) => {
     // const image= await axios.post('')
     console.log(`${link[5]}`);
     const uid = uuid();
-    const url = `http://localhost:3000/pay/${uid}`;
+    const url = `http://billam.netlify.app/pay/${uid}`;
     const user = await User.findOne({ username });
     if (!user) {
       const newUser = await User.create({ username });
@@ -136,7 +136,7 @@ router.post("/pay", async (req, res) => {
     const inputBody = {
       amount: Number(amount),
       currency: "NGN",
-      redirectUrl: `http://localhost:3000/pay/${uid}?ref=${ref}`,
+      redirectUrl: `http://billam.netlify.app/pay/${uid}?ref=${ref}`,
       transRef: ref,
       paymentOptions: "CARD,BANK,USSD",
       customerEmail: email,
