@@ -117,6 +117,7 @@ router.post("/products/new", async (req, res) => {
       username,
       image: twitterLink,
       totalAmount,
+      amountRaised: 0,
       uid,
       title,
       userId: user._id,
