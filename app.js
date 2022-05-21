@@ -7,10 +7,7 @@ const routes = require("./routes");
 const db = require("./db");
 
 db();
-const whitelist = [
-  "http://localhost:3000",
-  "https://thawing-castle-70547.herokuapp.com",
-];
+const whitelist = ["http://localhost:3000", "https://billam.netlify.app"];
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || whitelist.indexOf(origin) !== -1) {
